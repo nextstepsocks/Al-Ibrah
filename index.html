@@ -1,0 +1,624 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>AL IBRAH — Socks for kids and adults</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,500;9..144,600;9..144,700&family=Public+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --cream: #F2EDE3;
+    --paper: #FBF8F1;
+    --ink: #211E1A;
+    --ink-soft: #4B463E;
+    --mustard: #D6A419;
+    --mustard-deep: #A9800F;
+    --teal: #2B5457;
+    --teal-deep: #1C3B3D;
+    --brick: #B33B2E;
+    --line: #DCD2BC;
+    --line-soft: rgba(33,30,26,0.12);
+    --radius: 3px;
+  }
+
+  *{ box-sizing: border-box; }
+  html{ scroll-behavior: smooth; }
+  body{
+    margin:0;
+    background: var(--cream);
+    color: var(--ink);
+    font-family: 'Public Sans', -apple-system, sans-serif;
+    line-height: 1.55;
+    -webkit-font-smoothing: antialiased;
+  }
+  img{ max-width:100%; display:block; }
+  a{ color: inherit; }
+
+  h1, h2, h3{
+    font-family: 'Fraunces', Georgia, serif;
+    font-weight: 600;
+    margin: 0;
+    letter-spacing: -0.01em;
+  }
+
+  .wrap{
+    max-width: 1180px;
+    margin: 0 auto;
+    padding: 0 32px;
+  }
+
+  a:focus-visible, button:focus-visible, input:focus-visible{
+    outline: 2px solid var(--brick);
+    outline-offset: 3px;
+  }
+
+  /* ---------- NAV ---------- */
+  header.site{
+    position: sticky;
+    top: 0;
+    z-index: 40;
+    background: var(--cream);
+    border-bottom: 1px solid var(--line);
+  }
+  .nav{
+    display:flex;
+    align-items:center;
+    justify-content: space-between;
+    padding: 16px 32px;
+    max-width: 1180px;
+    margin: 0 auto;
+  }
+  .nav .logo-mark{ display:flex; align-items:center; gap:12px; text-decoration:none; }
+  .nav .logo-mark img{ height: 30px; width: auto; }
+  .nav-links{
+    display:flex;
+    gap: 28px;
+    list-style: none;
+    margin:0; padding:0;
+    font-size: 0.95rem;
+    font-weight: 500;
+  }
+  .nav-links a{ text-decoration:none; color: var(--ink-soft); border-bottom: 1px solid transparent; padding-bottom:2px; transition: color .15s, border-color .15s; }
+  .nav-links a:hover{ color: var(--ink); border-color: var(--ink); }
+  .nav-cta{
+    display:inline-flex;
+    align-items:center;
+    gap:8px;
+    background: var(--ink);
+    color: var(--paper);
+    text-decoration:none;
+    padding: 10px 18px;
+    border-radius: var(--radius);
+    font-size: 0.9rem;
+    font-weight: 600;
+    white-space: nowrap;
+  }
+  .nav-mobile-hide{ display:flex; align-items:center; gap:28px; }
+
+  /* ---------- HERO ---------- */
+  .hero{
+    padding: 76px 0 96px;
+    overflow: hidden;
+  }
+  .hero .wrap{
+    display:grid;
+    grid-template-columns: 1.05fr 0.95fr;
+    gap: 48px;
+    align-items:center;
+  }
+  .hero h1{
+    font-size: clamp(2.5rem, 4.6vw, 4rem);
+    line-height: 1.04;
+    color: var(--ink);
+  }
+  .hero .lede{
+    margin-top: 22px;
+    max-width: 46ch;
+    font-size: 1.1rem;
+    color: var(--ink-soft);
+  }
+  .hero .cta-row{
+    display:flex;
+    gap: 14px;
+    margin-top: 34px;
+    flex-wrap: wrap;
+  }
+  .btn{
+    display:inline-flex;
+    align-items:center;
+    justify-content:center;
+    padding: 13px 24px;
+    border-radius: var(--radius);
+    font-weight: 600;
+    font-size: 0.95rem;
+    text-decoration:none;
+    border: 1px solid transparent;
+    cursor:pointer;
+    font-family: inherit;
+  }
+  .btn-primary{ background: var(--ink); color: var(--paper); }
+  .btn-primary:hover{ background: var(--brick); }
+  .btn-outline{ background: transparent; border-color: var(--ink); color: var(--ink); }
+  .btn-outline:hover{ background: var(--ink); color: var(--paper); }
+
+  .hero-art{
+    position:relative;
+    height: 420px;
+  }
+  .hero-art svg{ position:absolute; }
+
+  /* ---------- MARQUEE STRIP ---------- */
+  .strip{
+    background: var(--ink);
+    color: var(--paper);
+    padding: 14px 0;
+    overflow:hidden;
+    white-space: nowrap;
+    border-top: 1px solid var(--line-soft);
+    border-bottom: 1px solid var(--line-soft);
+  }
+  .strip-track{
+    display:inline-flex;
+    gap: 48px;
+    animation: scrollstrip 32s linear infinite;
+    font-family: 'Fraunces', serif;
+    font-size: 1.05rem;
+    font-weight: 500;
+  }
+  .strip-track span{ opacity: 0.9; }
+  .strip:hover .strip-track{ animation-play-state: paused; }
+  @keyframes scrollstrip{
+    from{ transform: translateX(0); }
+    to{ transform: translateX(-50%); }
+  }
+
+  /* ---------- COLLECTIONS ---------- */
+  .collections{
+    display:grid;
+    grid-template-columns: 1fr 1fr;
+  }
+  .collection{
+    padding: 88px 40px;
+    position:relative;
+  }
+  .collection .inner{
+    max-width: 440px;
+    margin: 0 auto;
+  }
+  .collection.kids{ background: var(--mustard); color: var(--ink); }
+  .collection.adults{ background: var(--teal); color: var(--paper); }
+
+  .collection .kicker{
+    font-size: 0.85rem;
+    font-weight: 600;
+    letter-spacing: 0.02em;
+    margin-bottom: 14px;
+    opacity: 0.85;
+  }
+  .collection h2{
+    font-size: clamp(1.8rem, 2.6vw, 2.4rem);
+    line-height: 1.1;
+  }
+  .collection p.desc{
+    margin-top: 16px;
+    font-size: 1.02rem;
+    max-width: 40ch;
+  }
+  .collection.adults p.desc{ color: #E4E9E9; }
+  .collection.kids p.desc{ color: #3a2f10; }
+
+  .feature-list{
+    list-style:none;
+    padding:0;
+    margin: 28px 0 0;
+    display:flex;
+    flex-direction: column;
+    gap: 10px;
+  }
+  .feature-list li{
+    display:flex;
+    align-items:flex-start;
+    gap: 10px;
+    font-size: 0.96rem;
+  }
+  .feature-list li svg{ flex: none; margin-top: 3px; }
+
+  .collection .sock-illustration{
+    margin-top: 40px;
+    height: 150px;
+  }
+
+  .collection-link{
+    display:inline-flex;
+    margin-top: 32px;
+    font-weight: 600;
+    font-size: 0.95rem;
+    text-decoration: none;
+    border-bottom: 1.5px solid currentColor;
+    padding-bottom: 2px;
+  }
+
+  /* ---------- MATERIAL SECTION ---------- */
+  .material{
+    padding: 100px 0 96px;
+  }
+  .material-head{
+    max-width: 560px;
+  }
+  .material-head h2{
+    font-size: clamp(1.9rem, 3vw, 2.6rem);
+  }
+  .material-head p{
+    margin-top: 16px;
+    color: var(--ink-soft);
+    font-size: 1.05rem;
+    max-width: 48ch;
+  }
+  .material-grid{
+    margin-top: 56px;
+    display:grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 1px;
+    background: var(--line);
+    border: 1px solid var(--line);
+  }
+  .material-card{
+    background: var(--paper);
+    padding: 36px 32px;
+  }
+  .material-card .index{
+    font-family: 'Fraunces', serif;
+    font-size: 0.95rem;
+    color: var(--brick);
+    font-weight: 600;
+  }
+  .material-card h3{
+    margin-top: 14px;
+    font-size: 1.25rem;
+    font-weight: 600;
+  }
+  .material-card p{
+    margin-top: 10px;
+    color: var(--ink-soft);
+    font-size: 0.96rem;
+  }
+
+  /* ---------- BAND QUOTE ---------- */
+  .band{
+    background: var(--paper);
+    border-top: 1px solid var(--line);
+    border-bottom: 1px solid var(--line);
+    padding: 70px 0;
+  }
+  .band .wrap{
+    display:flex;
+    gap: 40px;
+    align-items:center;
+    justify-content: space-between;
+    flex-wrap: wrap;
+  }
+  .band blockquote{
+    margin:0;
+    font-family: 'Fraunces', serif;
+    font-size: clamp(1.4rem, 2.4vw, 1.9rem);
+    max-width: 640px;
+    line-height: 1.3;
+    font-weight: 500;
+  }
+  .band cite{
+    display:block;
+    font-style: normal;
+    margin-top: 18px;
+    font-size: 0.9rem;
+    color: var(--ink-soft);
+    font-family: 'Public Sans', sans-serif;
+  }
+
+  /* ---------- FOOTER ---------- */
+  footer{
+    background: var(--ink);
+    color: var(--paper);
+    padding: 72px 0 32px;
+  }
+  .footer-grid{
+    display:grid;
+    grid-template-columns: 1.3fr 1fr 1fr 1.2fr;
+    gap: 40px;
+  }
+  .footer-brand .logo-mark{ display:flex; align-items:center; gap:10px; }
+  .footer-brand .logo-mark img{ height: 26px; filter: invert(1); }
+  .footer-brand p{
+    margin-top: 18px;
+    color: #C9C3B6;
+    max-width: 32ch;
+    font-size: 0.95rem;
+  }
+  footer h4{
+    font-family: 'Public Sans', sans-serif;
+    font-size: 0.85rem;
+    font-weight: 600;
+    margin: 0 0 16px;
+    color: #C9C3B6;
+  }
+  footer ul{ list-style:none; margin:0; padding:0; display:flex; flex-direction:column; gap:10px; }
+  footer ul a{ text-decoration:none; color: #E9E5DA; font-size: 0.95rem; }
+  footer ul a:hover{ color: var(--mustard); }
+
+  .newsletter form{
+    display:flex;
+    margin-top: 4px;
+    border: 1px solid #4A463C;
+    border-radius: var(--radius);
+    overflow:hidden;
+  }
+  .newsletter input{
+    flex:1;
+    border:0;
+    background: transparent;
+    color: var(--paper);
+    padding: 12px 14px;
+    font-family: inherit;
+    font-size: 0.9rem;
+  }
+  .newsletter input::placeholder{ color: #8B867A; }
+  .newsletter input:focus{ outline: none; }
+  .newsletter button{
+    border:0;
+    background: var(--mustard);
+    color: var(--ink);
+    padding: 0 18px;
+    font-weight: 600;
+    cursor:pointer;
+    font-family: inherit;
+    font-size: 0.9rem;
+  }
+  .newsletter button:hover{ background: var(--paper); }
+  .newsletter .note{ margin-top: 10px; font-size: 0.8rem; color: #8B867A; }
+
+  .footer-bottom{
+    margin-top: 64px;
+    padding-top: 24px;
+    border-top: 1px solid #3A362E;
+    display:flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    gap: 12px;
+    font-size: 0.85rem;
+    color: #8B867A;
+  }
+
+  /* ---------- RESPONSIVE ---------- */
+  @media (max-width: 900px){
+    .hero .wrap{ grid-template-columns: 1fr; }
+    .hero-art{ height: 280px; order: -1; }
+    .collections{ grid-template-columns: 1fr; }
+    .material-grid{ grid-template-columns: 1fr; }
+    .footer-grid{ grid-template-columns: 1fr 1fr; }
+    .nav-mobile-hide{ display:none; }
+  }
+  @media (max-width: 560px){
+    .wrap{ padding: 0 20px; }
+    .nav{ padding: 14px 20px; }
+    .hero{ padding: 48px 0 64px; }
+    .footer-grid{ grid-template-columns: 1fr; }
+    .band .wrap{ flex-direction: column; align-items:flex-start; }
+  }
+
+  @media (prefers-reduced-motion: reduce){
+    .strip-track{ animation: none; }
+    html{ scroll-behavior: auto; }
+  }
+</style>
+</head>
+<body>
+
+<header class="site">
+  <nav class="nav">
+    <a href="#top" class="logo-mark">
+      <img src="Al_Ibrah_logo.jpg" alt="AL IBRAH">
+    </a>
+    <div class="nav-mobile-hide">
+      <ul class="nav-links">
+        <li><a href="#kids">Kids</a></li>
+        <li><a href="#adults">Adults</a></li>
+        <li><a href="#fabric">Our fabric</a></li>
+        <li><a href="#contact">Contact</a></li>
+      </ul>
+      <a href="https://www.amazon.ae/dp/B0HF4H7ZBB?th=1&psc=1" class="nav-cta" target="_blank" rel="noopener">Shop on Amazon</a>
+    </div>
+  </nav>
+</header>
+
+<main id="top">
+
+  <!-- HERO -->
+  <section class="hero">
+    <div class="wrap">
+      <div>
+        <h1>One drawer.<br>Every foot in the house.</h1>
+        <p class="lede">AL IBRAH knits socks for kids and adults from combed cotton, with reinforced heels and toes built to survive the wash, the playground and the office.</p>
+        <div class="cta-row">
+          <a href="https://www.amazon.ae/dp/B0HF4H7ZBB?th=1&psc=1" class="btn btn-primary" target="_blank" rel="noopener">Shop on Amazon</a>
+          <a href="#kids" class="btn btn-outline">See the collections</a>
+        </div>
+      </div>
+
+      <div class="hero-art" aria-hidden="true">
+        <svg viewBox="0 0 420 420" width="100%" height="100%" style="overflow:visible;">
+          <!-- sock 1: mustard -->
+          <g transform="translate(60,40) rotate(-8)">
+            <clipPath id="clipA"><path d="M28 0 H92 V110 C92 122 99 129 111 132 L152 142 C164 145 169 155 164 165 L154 180 C118 202 62 202 32 180 C15 168 6 150 6 130 V0 Z"/></clipPath>
+            <g clip-path="url(#clipA)">
+              <rect x="0" y="0" width="170" height="210" fill="#FBF8F1"/>
+              <rect x="0" y="0" width="170" height="22" fill="var(--brick)"/>
+              <rect x="0" y="34" width="170" height="14" fill="var(--ink)"/>
+              <rect x="0" y="60" width="170" height="14" fill="var(--ink)"/>
+              <rect x="0" y="130" width="170" height="70" fill="var(--mustard)"/>
+            </g>
+            <path d="M28 0 H92 V110 C92 122 99 129 111 132 L152 142 C164 145 169 155 164 165 L154 180 C118 202 62 202 32 180 C15 168 6 150 6 130 V0 Z" fill="none" stroke="var(--ink)" stroke-width="3"/>
+          </g>
+
+          <!-- sock 2: teal -->
+          <g transform="translate(200,150) rotate(10)">
+            <clipPath id="clipB"><path d="M28 0 H92 V110 C92 122 99 129 111 132 L152 142 C164 145 169 155 164 165 L154 180 C118 202 62 202 32 180 C15 168 6 150 6 130 V0 Z"/></clipPath>
+            <g clip-path="url(#clipB)">
+              <rect x="0" y="0" width="170" height="210" fill="#FBF8F1"/>
+              <rect x="0" y="0" width="170" height="130" fill="var(--teal)"/>
+              <rect x="0" y="150" width="170" height="10" fill="var(--ink)"/>
+              <rect x="0" y="170" width="170" height="10" fill="var(--ink)"/>
+            </g>
+            <path d="M28 0 H92 V110 C92 122 99 129 111 132 L152 142 C164 145 169 155 164 165 L154 180 C118 202 62 202 32 180 C15 168 6 150 6 130 V0 Z" fill="none" stroke="var(--ink)" stroke-width="3"/>
+          </g>
+
+          <!-- sock 3: brick small -->
+          <g transform="translate(30,230) rotate(4) scale(0.72)">
+            <clipPath id="clipC"><path d="M28 0 H92 V110 C92 122 99 129 111 132 L152 142 C164 145 169 155 164 165 L154 180 C118 202 62 202 32 180 C15 168 6 150 6 130 V0 Z"/></clipPath>
+            <g clip-path="url(#clipC)">
+              <rect x="0" y="0" width="170" height="210" fill="#FBF8F1"/>
+              <rect x="0" y="16" width="170" height="10" fill="var(--brick)"/>
+              <rect x="0" y="40" width="170" height="10" fill="var(--brick)"/>
+              <rect x="0" y="64" width="170" height="10" fill="var(--brick)"/>
+              <rect x="0" y="132" width="170" height="70" fill="var(--ink)"/>
+            </g>
+            <path d="M28 0 H92 V110 C92 122 99 129 111 132 L152 142 C164 145 169 155 164 165 L154 180 C118 202 62 202 32 180 C15 168 6 150 6 130 V0 Z" fill="none" stroke="var(--ink)" stroke-width="3"/>
+          </g>
+        </svg>
+      </div>
+    </div>
+  </section>
+
+  <!-- STRIP -->
+  <div class="strip" aria-hidden="true">
+    <div class="strip-track">
+      <span>Combed cotton</span><span>·</span>
+      <span>Reinforced heel &amp; toe</span><span>·</span>
+      <span>Sizes newborn to XL</span><span>·</span>
+      <span>Machine wash, tumble dry, still fits</span><span>·</span>
+      <span>Combed cotton</span><span>·</span>
+      <span>Reinforced heel &amp; toe</span><span>·</span>
+      <span>Sizes newborn to XL</span><span>·</span>
+      <span>Machine wash, tumble dry, still fits</span><span>·</span>
+    </div>
+  </div>
+
+  <!-- COLLECTIONS -->
+  <section class="collections">
+    <div class="collection kids" id="kids">
+      <div class="inner">
+        <div class="kicker">Kids collection</div>
+        <h2>Built for recess, not for babying.</h2>
+        <p class="desc">Bright stripes, cartoon-proof colors, and a stretch-knit cuff that stays put through cartwheels. Sized from crawlers through pre-teens.</p>
+        <ul class="feature-list">
+          <li><svg width="16" height="16" viewBox="0 0 16 16"><path d="M2 8.5 L6 12.5 L14 3.5" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg> Extra-cushioned sole for hard floors</li>
+          <li><svg width="16" height="16" viewBox="0 0 16 16"><path d="M2 8.5 L6 12.5 L14 3.5" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg> Flat seamless toe, nothing to rub</li>
+          <li><svg width="16" height="16" viewBox="0 0 16 16"><path d="M2 8.5 L6 12.5 L14 3.5" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg> Wide cuff that doesn't dig in or slide down</li>
+        </ul>
+        <a href="https://www.amazon.ae/dp/B0HF4H7ZBB?th=1&psc=1" class="collection-link" target="_blank" rel="noopener">Shop kids' socks on Amazon</a>
+      </div>
+    </div>
+
+    <div class="collection adults" id="adults">
+      <div class="inner">
+        <div class="kicker">Adult collection</div>
+        <h2>Quiet patterns, real comfort.</h2>
+        <p class="desc">Fine-gauge cotton, an arch support band, and a heel shaped to an actual heel. Made for the early commute and the Sunday spent doing nothing.</p>
+        <ul class="feature-list">
+          <li><svg width="16" height="16" viewBox="0 0 16 16"><path d="M2 8.5 L6 12.5 L14 3.5" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg> Arch compression band, all day</li>
+          <li><svg width="16" height="16" viewBox="0 0 16 16"><path d="M2 8.5 L6 12.5 L14 3.5" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg> Reinforced heel and toe</li>
+          <li><svg width="16" height="16" viewBox="0 0 16 16"><path d="M2 8.5 L6 12.5 L14 3.5" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg> Breathable mesh across the vamp</li>
+        </ul>
+        <a href="https://www.amazon.ae/dp/B0HF4H7ZBB?th=1&psc=1" class="collection-link" target="_blank" rel="noopener">Shop adult socks on Amazon</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- MATERIAL -->
+  <section class="material" id="fabric">
+    <div class="wrap">
+      <div class="material-head">
+        <h2>What's actually in a pair</h2>
+        <p>No filler copy about "premium quality." Here's what we changed to make a sock worth keeping past one winter.</p>
+      </div>
+
+      <div class="material-grid">
+        <div class="material-card">
+          <div class="index">Cotton</div>
+          <h3>92% combed cotton</h3>
+          <p>Grown and combed to remove short fibers, so it stays soft and resists pilling well past the first month.</p>
+        </div>
+        <div class="material-card">
+          <div class="index">Construction</div>
+          <h3>Flat-knit toe seam</h3>
+          <p>No ridge across the toes, on a foot four years old or forty. It's the first thing people notice when they stop noticing their socks.</p>
+        </div>
+        <div class="material-card">
+          <div class="index">Testing</div>
+          <h3>40 wash cycles, minimum</h3>
+          <p>Every batch is washed and dried forty times before it earns the AL IBRAH label — shape, color and elastic all have to hold.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- BAND -->
+  <section class="band">
+    <div class="wrap">
+      <blockquote>
+        "The whole household wears the same brand now — the kids don't ruin theirs by August, and mine finally stay up."
+        <cite>An early household, Dubai</cite>
+      </blockquote>
+      <a href="https://www.amazon.ae/dp/B0HF4H7ZBB?th=1&psc=1" class="btn btn-primary" target="_blank" rel="noopener">Shop on Amazon</a>
+    </div>
+  </section>
+
+</main>
+
+<footer id="contact">
+  <div class="wrap">
+    <div class="footer-grid">
+      <div class="footer-brand">
+        <a href="#top" class="logo-mark">
+          <img src="Al_Ibrah_logo.jpg" alt="AL IBRAH">
+        </a>
+        <p>Socks for the whole family — kids and adults, one drawer, no compromises on either side.</p>
+      </div>
+
+      <div>
+        <h4>Shop</h4>
+        <ul>
+          <li><a href="#kids">Kids collection</a></li>
+          <li><a href="#adults">Adult collection</a></li>
+          <li><a href="#fabric">Our fabric</a></li>
+        </ul>
+      </div>
+
+      <div>
+        <h4>Brand</h4>
+        <ul>
+          <li><a href="#top">About AL IBRAH</a></li>
+          <li><a href="mailto:ibbo158@gmail.com">ibbo158@gmail.com</a></li>
+          <li><a href="mailto:ibbo158@gmail.com?subject=Wholesale%20enquiry">Wholesale enquiries</a></li>
+        </ul>
+      </div>
+
+      <div class="newsletter">
+        <h4>Get new colors first</h4>
+        <form onsubmit="event.preventDefault(); var addr=this.querySelector('input').value; window.location.href='mailto:ibbo158@gmail.com?subject=Notify%20me%20-%20AL%20IBRAH&body=Please%20add%20me%20to%20the%20list%3A%20'+encodeURIComponent(addr); this.querySelector('button').textContent='Opening your email…';">
+          <input type="email" placeholder="you@email.com" aria-label="Email address" required>
+          <button type="submit">Notify me</button>
+        </form>
+        <p class="note">Opens an email to ibbo158@gmail.com. No spam.</p>
+      </div>
+    </div>
+
+    <div class="footer-bottom">
+      <span>© 2026 AL IBRAH. All rights reserved.</span>
+      <span>Made for feet of every size.</span>
+    </div>
+  </div>
+</footer>
+
+</body>
+</html>
